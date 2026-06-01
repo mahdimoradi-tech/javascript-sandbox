@@ -8,7 +8,7 @@ const totalPrice = document.querySelector(".total-price");
 const cartContent = document.querySelector(".cart-content");
 const clearCart = document.querySelector(".btn--clear");
 
-import { productsData } from "./products.js";
+import { productsData } from "./products.js"
 
 let carts = [];
 let buttonsDOM = [];

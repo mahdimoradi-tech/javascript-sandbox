@@ -1,108 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/shoppingCart.css" />
+    <title>Products | E-Commerce</title>
     <link rel="stylesheet" href="./css/fonts.css" />
-    <script
-      src="https://kit.fontawesome.com/45acf4f9f1.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="./js/shoppingCart.js"></script>
-    <title>Shopping cart</title>
+    <link rel="stylesheet" href="./css/shoppingCart.css" />
   </head>
   <body>
-    <!-- cart -->
-    <div class="backdrop hidden"></div>
-    <div class="cart hidden">
-      <span class="close-cart">&times;</span>
-      <div class="cart__header">
-        <h2>Your cart</h2>
-      </div>
-      <div class="cart-content">
-        <!-- <div class="cart__item">
-          <div class="cart__item-image">
-            <img src="./pictures/pexels-marywhitneyph-90317.jpg" alt="" />
-          </div>
-          <div class="product__text">
-            <div class="price">
-              <span class="price__amount">10.99</span>
-              <span class="price__unit">$</span>
-            </div>
-            <p>cart one shopping</p>
-          </div>
-          <div class="amount-item">
-            <span class="increment">
-              <i class="fa-solid fa-chevron-up"></i>
-            </span>
-            <span>1</span>
-            <span class="decriment">
-              <i class="fa-solid fa-chevron-down"></i>
-            </span>
-          </div>
-          <div class="remove-item">
-            <span class="delete">
-              <i class="fa-solid fa-trash-can"></i>
-            </span>
-          </div>
-        </div> -->
-      </div>
-      <div class="cart__footer">
-        <div class="cart__footer-container">
-          <h3>Total Price: $<span class="total-price">0</span></h3>
-          <button class="btn btn--clear">clear cart</button>
-          <button class="btn btn--confirm">confirm</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- nav bar -->
     <header class="header">
-      <section class="header__content container">
-        <span class="icon">
-          <i class="fa-solid fa-bars"></i>
-        </span>
-        <p class="header__text">Mahdi Shopping</p>
-        <span class="icon cart--icon">
-          <span class="cart-btn">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <div class="circle-container">
-            <div class="circle">
-              <span class="cart-counter">0</span>
-            </div>
-          </div>
-          </span>
-        </span>
-      </section>
+      <div class="header__left">
+        <button class="menu-toggle-btn" aria-label="Open Menu">☰</button>
+
+        <nav class="desktop-nav">
+          <a href="#">Home</a>
+          <a href="#">Collections</a>
+          <a href="#" class="active">New</a>
+        </nav>
+      </div>
+
+      <div class="header__logo">
+        <span class="logo-placeholder">◆</span>
+      </div>
+
+      <div class="header__actions">
+        <button class="action-btn">♡</button>
+        <button class="action-btn cart-btn">
+          Cart <span class="cart-badge">0</span>
+        </button>
+        <button class="action-btn">👤</button>
+      </div>
     </header>
 
-    <!-- topic -->
-    <div class="topic">
-      <h1>Our products</h1>
-    </div>
+    <main class="main-content">
+      <section class="page-header">
+        <p class="breadcrumb">Home / <strong>Products</strong></p>
+        <h1 class="page-title">PRODUCTS</h1>
+      </section>
 
-    <!-- products -->
-    <section class="main">
-      <div class="product-container container">
-        <!-- <div class="product">
-        <div class="product__img">
-          <img src="" alt="">
+      <section class="toolbar">
+        <div class="search-box">
+          <input type="text" placeholder="Search" id="search-input" />
         </div>
-        <div class="product__text">
-          <div class="price">
-            <span class="price__amount">10.99</span>
-            <span class="price__unit">$</span>
+
+        <div class="category-tags">
+          <button class="tag-btn active">NEW</button>
+          <button class="tag-btn">SHIRTS</button>
+          <button class="tag-btn">POLO SHIRTS</button>
+          <button class="tag-btn">SHORTS</button>
+          <button class="tag-btn">SUITS</button>
+          <button class="tag-btn">BEST SELLERS</button>
+          <button class="tag-btn">T-SHIRTS</button>
+          <button class="tag-btn">JEANS</button>
+          <button class="tag-btn">JACKETS</button>
+          <button class="tag-btn">COAT</button>
+        </div>
+      </section>
+
+      <div class="layout-grid">
+        <aside class="sidebar">
+          <div class="sidebar__header">
+            <h2>Filters</h2>
           </div>
-          <p>cart one shopping</p>
-        </div>
-        <button class="btn">
-          add cart
-        </button>
-       </div> -->
-      </div>
-    </section>
 
-    <!-- script -->
+          <div class="filters-container">
+            <div class="filter-group">
+              <h3>Size</h3>
+              <div class="size-options">
+                <button class="size-btn">XS</button>
+                <button class="size-btn">S</button>
+                <button class="size-btn">M</button>
+                <button class="size-btn">L</button>
+                <button class="size-btn">XL</button>
+                <button class="size-btn">2X</button>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>Availability</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Category</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Colors</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Price Range</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Collections</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Tags</h3>
+            </div>
+            <div class="filter-group">
+              <h3>Rating</h3>
+            </div>
+          </div>
+        </aside>
+
+        <section class="products-area">
+          <div class="products-grid" id="products-container">
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="./pictures/product-placeholder.jpg"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >Cotton T Shirt <span class="color-badge">+5</span></span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                  <span class="product-price">$ 199</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="./js/products.js"></script>
   </body>
 </html>

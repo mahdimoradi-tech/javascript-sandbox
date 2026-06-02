@@ -6,11 +6,17 @@
     <title>Products | E-Commerce</title>
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/shoppingCart.css" />
+    <script
+      src="https://kit.fontawesome.com/45acf4f9f1.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="header">
       <div class="header__left">
-        <button class="menu-toggle-btn" aria-label="Open Menu">☰</button>
+        <button class="menu-toggle-btn" aria-label="Open Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
 
         <nav class="desktop-nav">
           <a href="#">Home</a>
@@ -20,16 +26,20 @@
       </div>
 
       <div class="header__logo">
-        <img src="./pictures/logo.png" alt="Brand Logo" class="logo-img">
+        <img src="./pictures/logo.png" alt="Brand Logo" class="logo-img" />
       </div>
 
       <div class="header__actions">
-        <button class="action-btn heart-btn">♡</button>
+        <button class="action-btn heart-btn">
+          <i class="fa-regular fa-heart"></i>
+        </button>
         <div class="action-btns">
           <button class="action-btn cart-btn">Cart</button>
-          <button class="action-btn cart-badge">0</button>
+          <button class="action-btn cart-badge">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </button>
         </div>
-        <button class="action-btn">👤</button>
+        <button class="action-btn"><i class="fa-regular fa-user"></i></button>
       </div>
     </header>
 
@@ -42,7 +52,9 @@
       <section class="toolbar">
         <div class="search-box">
           <input type="text" placeholder="Search" id="search-input" />
-          <span class="search-icon">🔍</span>
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
         </div>
 
         <div class="mobile-filter-toggle">
@@ -83,26 +95,33 @@
               </div>
             </div>
 
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Availability</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Category</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Colors</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Price Range</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Collections</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Tags</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="filter-group">
+            <div class="filter-group toggle-group">
               <h3>Rating</h3>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </aside>

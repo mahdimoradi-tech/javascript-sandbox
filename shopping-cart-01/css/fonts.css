@@ -1,27 +1,31 @@
 @font-face {
   font-family: "Beatrice Deck";
-  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Light-BF64829e9192d32.ttf") format("truetype");
+  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Light-BF64829e9192d32.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Beatrice Deck";
-  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Medium-BF64829e9193070.ttf") format("truetype");
+  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Medium-BF64829e9193070.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Beatrice Deck";
-  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Bold-BF64829e916f5e9.ttf") format("truetype");
+  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Bold-BF64829e916f5e9.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Beatrice Deck";
-  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Extrabold-BF64829e919604b.ttf") format("truetype");
+  src: url("../fonts/beatrice/BeatriceDeckTRIAL-Extrabold-BF64829e919604b.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: normal;
 }

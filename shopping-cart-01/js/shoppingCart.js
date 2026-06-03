@@ -19,8 +19,7 @@ const sizeOptions = document.querySelector(".size-options");
 // sidebar
 const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
 const sidebar = document.querySelector(".sidebar");
-const toggleGroups = document.querySelectorAll('.toggle-group');
-
+const toggleGroups = document.querySelectorAll(".toggle-group");
 
 import { productsData } from "./products.js";
 
@@ -263,11 +262,11 @@ if (mobileFilterToggle && sidebar) {
 
 // rotate filter titles chevron icons
 toggleGroups.forEach((group) => {
-  group.addEventListener('click', () => {
-    const icon = group.querySelector('i');
-    
+  group.addEventListener("click", () => {
+    const icon = group.querySelector("i");
+
     if (icon) {
-      icon.classList.toggle('rotate-up-90');
+      icon.classList.toggle("rotate-up-90");
     }
   });
 });

@@ -10,6 +10,8 @@ const backdrop = document.querySelector(".backdrop");
 const closeModal = document.querySelector(".close-modal");
 // products container
 const productsDom = document.querySelector(".product-container");
+// nav desktop
+const desktopNav = document.querySelector('.desktop-nav');
 
 import { productsData } from "./products.js";
 
@@ -254,6 +256,23 @@ function closeModalFunction() {
   cartModal.classList.add("hidden");
 }
 
+// toggle navigation
+function toggleNavigation(e){
+  const clickedLink = e.target.closest('a');
+
+  if (!clickedLink) return;
+
+  e.preventDefault();
+
+  const currentActive = desktopNav.querySelector('.active');
+  if (currentActive) {
+    currentActive.classList.remove('active');
+  }
+
+  clickedLink.classList.add('active');
+}
+
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
+desktopNav.addEventListener('click', toggleNavigation)

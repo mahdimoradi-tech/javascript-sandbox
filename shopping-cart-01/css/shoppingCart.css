@@ -820,3 +820,7 @@ img {
     color: var(--text-secondary);
   }
 }
+
+.hidden{
+  display: none;
+}

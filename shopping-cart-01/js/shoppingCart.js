@@ -1,13 +1,13 @@
 // cart
 const cartBtn = document.querySelector(".cart-btns");
-const cartTotal = document.querySelector(".cart-counter");
-const cartContent = document.querySelector(".cart-content");
-const clearCart = document.querySelector(".btn--clear");
+const cartTotal = document.querySelector(".cart-counter"); // => badge for counting add carts
+const cartContent = document.querySelector(".cart-modal");
+const clearCart = document.querySelector(".clear-cart-btn");
 const totalPrice = document.querySelector(".total-price");
 // modal
-const cartModal = document.querySelector(".cart");
+const cartModal = document.querySelector(".modal");
 const backdrop = document.querySelector(".backdrop");
-const closeModal = document.querySelector(".close-cart");
+const closeModal = document.querySelector(".close-modal");
 // products container
 const productsDom = document.querySelector(".product-container");
 

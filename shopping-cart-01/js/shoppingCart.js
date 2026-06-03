@@ -272,7 +272,12 @@ function setupActiveToggle(container, targetSelector) {
       e.preventDefault();
     }
 
-    const currentActive = container.querySelector('.active');
+    if(clickedItem.classList.contains('active')){
+      clickedItem.classList.remove('active')
+      return
+    }
+
+    const currentActive = container.querySelector('.active');    
     if (currentActive) {
       currentActive.classList.remove('active');
     }
@@ -284,6 +289,6 @@ function setupActiveToggle(container, targetSelector) {
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
-setupActiveToggle(document.querySelector('.desktop-nav'), 'a');
-setupActiveToggle(document.querySelector('.category-tags'), '.tag-btn');
-setupActiveToggle(document.querySelector('.size-options'), '.size-btn');
+setupActiveToggle(desktopNav, 'a');
+setupActiveToggle(categoryTags, '.tag-btn');
+setupActiveToggle(sizeOptions, '.size-btn');

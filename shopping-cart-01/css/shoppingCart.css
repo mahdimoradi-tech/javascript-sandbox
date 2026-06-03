@@ -821,6 +821,26 @@ img {
   }
 }
 
-.hidden{
+/* control modal */
+.hidden {
   display: none;
+}
+
+/* control sidebar */
+.show-sidebar {
+  display: block;
+}
+
+.rotate-up-90 {
+  transform: rotate(-90deg) !important;
+}
+
+/* ترانزیشن نرم برای خود آیکون */
+.toggle-group i {
+  transition: transform 0.3s ease;
+}
+
+/* برای اینکه هدر موس را به حالت کلیک درآورد */
+.toggle-group {
+  cursor: pointer;
 }

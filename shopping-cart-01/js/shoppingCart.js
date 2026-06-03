@@ -16,6 +16,11 @@ const desktopNav = document.querySelector(".desktop-nav");
 const categoryTags = document.querySelector(".category-tags");
 // size options
 const sizeOptions = document.querySelector(".size-options");
+// sidebar
+const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
+const sidebar = document.querySelector(".sidebar");
+const toggleGroups = document.querySelectorAll('.toggle-group');
+
 
 import { productsData } from "./products.js";
 
@@ -249,6 +254,24 @@ document.addEventListener("DOMContentLoaded", () => {
   Storage.saveData(productsData);
 });
 
+// toggle sidebar on mobile
+if (mobileFilterToggle && sidebar) {
+  mobileFilterToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("show-sidebar");
+  });
+}
+
+// rotate filter titles chevron icon
+toggleGroups.forEach((group) => {
+  group.addEventListener('click', () => {
+    const icon = group.querySelector('i');
+    
+    if (icon) {
+      icon.classList.toggle('rotate-up-90');
+    }
+  });
+});
+
 //cart item modal
 function showModalFunction() {
   backdrop.classList.remove("hidden");
@@ -264,31 +287,31 @@ function closeModalFunction() {
 function setupActiveToggle(container, targetSelector) {
   if (!container) return;
 
-  container.addEventListener('click', (e) => {
+  container.addEventListener("click", (e) => {
     const clickedItem = e.target.closest(targetSelector);
     if (!clickedItem) return;
 
-    if (clickedItem.tagName === 'A') {
+    if (clickedItem.tagName === "A") {
       e.preventDefault();
     }
 
-    if(clickedItem.classList.contains('active')){
-      clickedItem.classList.remove('active')
-      return
+    if (clickedItem.classList.contains("active")) {
+      clickedItem.classList.remove("active");
+      return;
     }
 
-    const currentActive = container.querySelector('.active');    
+    const currentActive = container.querySelector(".active");
     if (currentActive) {
-      currentActive.classList.remove('active');
+      currentActive.classList.remove("active");
     }
 
-    clickedItem.classList.add('active');
+    clickedItem.classList.add("active");
   });
 }
 
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
-setupActiveToggle(desktopNav, 'a');
-setupActiveToggle(categoryTags, '.tag-btn');
-setupActiveToggle(sizeOptions, '.size-btn');
+setupActiveToggle(desktopNav, "a");
+setupActiveToggle(categoryTags, ".tag-btn");
+setupActiveToggle(sizeOptions, ".size-btn");

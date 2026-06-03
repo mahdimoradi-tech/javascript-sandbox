@@ -11,9 +11,11 @@ const closeModal = document.querySelector(".close-modal");
 // products container
 const productsDom = document.querySelector(".product-container");
 // nav desktop
-const desktopNav = document.querySelector('.desktop-nav');
+const desktopNav = document.querySelector(".desktop-nav");
 // category tags
-const categoryTags = document.querySelector('.category-tags');
+const categoryTags = document.querySelector(".category-tags");
+// size options
+const sizeOptions = document.querySelector(".size-options");
 
 import { productsData } from "./products.js";
 
@@ -259,38 +261,52 @@ function closeModalFunction() {
 }
 
 // toggle navigation
-function toggleNavigation(e){
-  const clickedLink = e.target.closest('a');
+function toggleNavigation(e) {
+  const clickedLink = e.target.closest("a");
 
   if (!clickedLink) return;
 
   e.preventDefault();
 
-  const currentActive = desktopNav.querySelector('.active');
+  const currentActive = desktopNav.querySelector(".active");
   if (currentActive) {
-    currentActive.classList.remove('active');
+    currentActive.classList.remove("active");
   }
 
-  clickedLink.classList.add('active');
+  clickedLink.classList.add("active");
 }
 
-function toggleTags(e){
-  const clickedTag = e.target.closest('.tag-btn');
+function toggleTags(e) {
+  const clickedTag = e.target.closest(".tag-btn");
 
   if (!clickedTag) return;
 
   e.preventDefault();
 
-  const currentActive = categoryTags.querySelector('.active');
+  const currentActive = categoryTags.querySelector(".active");
   if (currentActive) {
-    currentActive.classList.remove('active');
+    currentActive.classList.remove("active");
   }
 
-  clickedTag.classList.add('active');
+  clickedTag.classList.add("active");
+}
+
+function toggleSizeOption(e) {
+  const clickedSize = e.target.closest(".size-btn");
+
+  if (!clickedSize) return;
+
+  const currentActive = sizeOptions.querySelector(".active");
+  if (currentActive) {
+    currentActive.classList.remove("active");
+  }
+
+  clickedSize.classList.add("active");
 }
 
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
-desktopNav.addEventListener('click', toggleNavigation)
-categoryTags.addEventListener('click', toggleTags)
+desktopNav.addEventListener("click", toggleNavigation);
+categoryTags.addEventListener("click", toggleTags);
+sizeOptions.addEventListener("click", toggleSizeOption);

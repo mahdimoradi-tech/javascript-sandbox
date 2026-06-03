@@ -261,7 +261,7 @@ if (mobileFilterToggle && sidebar) {
   });
 }
 
-// rotate filter titles chevron icon
+// rotate filter titles chevron icons
 toggleGroups.forEach((group) => {
   group.addEventListener('click', () => {
     const icon = group.querySelector('i');

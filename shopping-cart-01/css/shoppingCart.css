@@ -138,6 +138,17 @@ img {
   color: var(--text-primary);
 }
 
+.fa-bars-staggered{
+  transition: all ease 0.2s;
+
+}
+
+.fa-bars-staggered:hover{
+  color: var(--text-primary);
+  scale: 1.2;
+  font-weight: 700;
+}
+
 .desktop-nav {
   display: none;
 }
@@ -162,6 +173,8 @@ img {
     gap: var(--space-md);
   }
 }
+
+
 
 .desktop-nav a {
   font-size: var(--text-base);

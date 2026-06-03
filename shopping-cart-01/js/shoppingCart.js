@@ -260,53 +260,30 @@ function closeModalFunction() {
   cartModal.classList.add("hidden");
 }
 
-// toggle navigation
-function toggleNavigation(e) {
-  const clickedLink = e.target.closest("a");
+// toggel active class
+function setupActiveToggle(container, targetSelector) {
+  if (!container) return;
 
-  if (!clickedLink) return;
+  container.addEventListener('click', (e) => {
+    const clickedItem = e.target.closest(targetSelector);
+    if (!clickedItem) return;
 
-  e.preventDefault();
+    if (clickedItem.tagName === 'A') {
+      e.preventDefault();
+    }
 
-  const currentActive = desktopNav.querySelector(".active");
-  if (currentActive) {
-    currentActive.classList.remove("active");
-  }
+    const currentActive = container.querySelector('.active');
+    if (currentActive) {
+      currentActive.classList.remove('active');
+    }
 
-  clickedLink.classList.add("active");
-}
-
-function toggleTags(e) {
-  const clickedTag = e.target.closest(".tag-btn");
-
-  if (!clickedTag) return;
-
-  e.preventDefault();
-
-  const currentActive = categoryTags.querySelector(".active");
-  if (currentActive) {
-    currentActive.classList.remove("active");
-  }
-
-  clickedTag.classList.add("active");
-}
-
-function toggleSizeOption(e) {
-  const clickedSize = e.target.closest(".size-btn");
-
-  if (!clickedSize) return;
-
-  const currentActive = sizeOptions.querySelector(".active");
-  if (currentActive) {
-    currentActive.classList.remove("active");
-  }
-
-  clickedSize.classList.add("active");
+    clickedItem.classList.add('active');
+  });
 }
 
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
-desktopNav.addEventListener("click", toggleNavigation);
-categoryTags.addEventListener("click", toggleTags);
-sizeOptions.addEventListener("click", toggleSizeOption);
+setupActiveToggle(document.querySelector('.desktop-nav'), 'a');
+setupActiveToggle(document.querySelector('.category-tags'), '.tag-btn');
+setupActiveToggle(document.querySelector('.size-options'), '.size-btn');

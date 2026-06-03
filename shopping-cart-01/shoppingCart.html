@@ -10,6 +10,7 @@
       src="https://kit.fontawesome.com/45acf4f9f1.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/shoppingCart.js" type="module" defer></script>
   </head>
   <body>
     <header class="header">
@@ -33,7 +34,7 @@
         <button class="action-btn heart-btn">
           <i class="fa-regular fa-heart"></i>
         </button>
-        <div class="action-btns">
+        <div class="cart-btns">
           <button class="action-btn cart-btn">Cart</button>
           <button class="action-btn cart-badge">
             <i class="fa-solid fa-bag-shopping"></i>
@@ -253,6 +254,55 @@
       </div>
     </main>
 
-    <script src="./js/products.js"></script>
+    <div class="modal">
+      <div class="backdrop"></div>
+
+      <main class="cart-modal">
+        <header class="cart-modal__header">
+          <h2 class="modal-title">Your Cart</h2>
+          <button class="close-modal action-btn cart-badge">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </header>
+
+        <section class="cart-products">
+          <article class="cart-product">
+            <div class="cart-product__image">
+              <img
+                src="./pictures/product-placeholder.jpg"
+                alt="Basic Slim Fit T-Shirt"
+              />
+            </div>
+
+            <div class="cart-product__info">
+              <div class="info-top">
+                <span class="brand"
+                  >Cotton T Shirt <span class="color-badge">+5</span></span
+                >
+              </div>
+              <div class="info-bottom">
+                <h3 class="product-name">Basic Slim Fit T-Shirt</h3>
+                <span class="product-price">$ 199</span>
+              </div>
+            </div>
+
+            <button class="cart-product__remove" aria-label="Remove from cart">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </article>
+        </section>
+
+        <footer class="cart-modal__footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <strong class="total-price">$ 199</strong>
+          </div>
+          <div class="cart-actions">
+            <button class="clear-cart-btn">Clear Cart</button>
+            <button class="checkout-btn">Checkout</button>
+          </div>
+        </footer>
+      </main>
+    </div>
   </body>
 </html>

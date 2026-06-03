@@ -1,14 +1,17 @@
-const cartBtn = document.querySelector(".cart--icon");
+// cart
+const cartBtn = document.querySelector(".cart-btns");
+const cartTotal = document.querySelector(".cart-counter");
+const cartContent = document.querySelector(".cart-content");
+const clearCart = document.querySelector(".btn--clear");
+const totalPrice = document.querySelector(".total-price");
+// modal
 const cartModal = document.querySelector(".cart");
 const backdrop = document.querySelector(".backdrop");
 const closeModal = document.querySelector(".close-cart");
-const productsDom = document.querySelector(".product-container")
-const cartTotal = document.querySelector(".cart-counter");
-const totalPrice = document.querySelector(".total-price");
-const cartContent = document.querySelector(".cart-content");
-const clearCart = document.querySelector(".btn--clear");
+// products container
+const productsDom = document.querySelector(".product-container");
 
-import { productsData } from "./products.js"
+import { productsData } from "./products.js";
 
 let carts = [];
 let buttonsDOM = [];
@@ -132,7 +135,7 @@ class UI {
         const id = addQuantity.dataset.id;
 
         const addedItem = carts.find(
-          (cartItem) => parseInt(cartItem.id) === parseInt(id)
+          (cartItem) => parseInt(cartItem.id) === parseInt(id),
         );
         addedItem.quantity++;
 
@@ -155,7 +158,7 @@ class UI {
         const id = lowerQuantity.dataset.id;
 
         const lowerItem = carts.find(
-          (cartItem) => parseInt(cartItem.id) === parseInt(id)
+          (cartItem) => parseInt(cartItem.id) === parseInt(id),
         );
 
         if (lowerItem.quantity === 1) {

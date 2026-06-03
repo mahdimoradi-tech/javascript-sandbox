@@ -12,6 +12,8 @@ const closeModal = document.querySelector(".close-modal");
 const productsDom = document.querySelector(".product-container");
 // nav desktop
 const desktopNav = document.querySelector('.desktop-nav');
+// category tags
+const categoryTags = document.querySelector('.category-tags');
 
 import { productsData } from "./products.js";
 
@@ -272,7 +274,23 @@ function toggleNavigation(e){
   clickedLink.classList.add('active');
 }
 
+function toggleTags(e){
+  const clickedTag = e.target.closest('.tag-btn');
+
+  if (!clickedTag) return;
+
+  e.preventDefault();
+
+  const currentActive = categoryTags.querySelector('.active');
+  if (currentActive) {
+    currentActive.classList.remove('active');
+  }
+
+  clickedTag.classList.add('active');
+}
+
 cartBtn.addEventListener("click", showModalFunction);
 backdrop.addEventListener("click", closeModalFunction);
 closeModal.addEventListener("click", closeModalFunction);
 desktopNav.addEventListener('click', toggleNavigation)
+categoryTags.addEventListener('click', toggleTags)

@@ -21,8 +21,6 @@ const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
 const sidebar = document.querySelector(".sidebar");
 const toggleGroups = document.querySelectorAll(".toggle-group");
 
-import { productsData } from "./products.js";
-
 let carts = [];
 let buttonsDOM = [];
 

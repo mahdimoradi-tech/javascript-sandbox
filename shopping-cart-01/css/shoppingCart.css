@@ -500,6 +500,7 @@ img {
 .product-card__image-wrapper img {
   width: 100%;
   height: auto;
+  max-height: 580px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
@@ -511,7 +512,7 @@ img {
   gap: var(--space-xs);
 }
 
-.brand {
+.info-top {
   font-weight: 500;
   font-size: var(--text-base);
   color: var(--text-secondary);
@@ -536,6 +537,14 @@ img {
   font-size: var(--text-base);
   font-weight: 500;
   color: var(--text-primary);
+}
+
+.info-top,
+.product-name {
+  max-width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-price {
@@ -577,6 +586,11 @@ img {
 
   .layout-grid {
     display: contents;
+  }
+
+  .product-name,
+  .info-top {
+    max-width: 320px;
   }
 
   .sidebar {

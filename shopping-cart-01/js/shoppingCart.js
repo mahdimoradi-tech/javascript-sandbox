@@ -1,6 +1,6 @@
 // cart
 const cartBtn = document.querySelector(".cart-btns");
-const cartTotal = document.querySelector(".cart-counter"); // => badge for counting add carts
+const cartTotal = document.querySelector(".cart-badge"); // => badge for counting add carts
 const cartContent = document.querySelector(".cart-modal");
 const clearCart = document.querySelector(".clear-cart-btn");
 const totalPrice = document.querySelector(".total-price");
@@ -9,7 +9,7 @@ const cartModal = document.querySelector(".modal");
 const backdrop = document.querySelector(".backdrop");
 const closeModal = document.querySelector(".close-modal");
 // products container
-const productsDom = document.querySelector(".product-container");
+const productsDom = document.querySelector(".products-grid");
 // nav desktop
 const desktopNav = document.querySelector(".desktop-nav");
 // category tags
@@ -26,8 +26,11 @@ let buttonsDOM = [];
 
 //1. get products
 class Products {
-  getProducts() {
-    return productsData;
+  async getProducts() {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+
+    return data;
   }
 }
 
@@ -36,23 +39,32 @@ class UI {
   displayProducts(products) {
     let result = "";
     products.forEach((product) => {
-      result += `<div class="product">
-        <div class="product__img">
-          <img src=${product.imageUrl} alt="">
-        </div>
-        <div class="product__text">
-          <div class="price">
-            <span class="price__amount">${product.price}</span>
-            <span class="price__unit">$</span>
-          </div>
-          <p>${product.title}</p>
-        </div>
-        <button class="btn add-to-cart" data-id=${product.id}>
-          add cart
-        </button>
-       </div>`;
-      productsDom.innerHTML = result;
+      result += `<article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  src="${product.image}"
+                  alt="Basic Slim Fit T-Shirt"
+                />
+              </div>
+
+              <div class="product-card__info">
+                <div class="info-top">
+                  <span class="brand"
+                    >${product.title}</span
+                  >
+                </div>
+                <div class="info-bottom">
+                  <h3 class="product-name">${product.description}</h3>
+                  <span class="product-price">$ ${product.price}</span>
+                </div>
+                <button class="add-to-cart-btn" data-id=${product.id}>
+                  <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+                </button>
+              </div>
+            </article>`;
     });
+
+    productsDom.innerHTML = result;
   }
 
   getAddToCartId() {
@@ -234,9 +246,10 @@ class Storage {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const products = new Products();
-  const productsData = products.getProducts();
+  const productsData = await products.getProducts();
+
   const ui = new UI();
 
   //setUpApp function for reloading and keep modal closed

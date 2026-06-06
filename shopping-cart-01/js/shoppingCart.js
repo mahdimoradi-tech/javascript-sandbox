@@ -27,10 +27,17 @@ let buttonsDOM = [];
 //1. get products
 class Products {
   async getProducts() {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();
+    try {
+      const res = await fetch("https://fakestoreapi.com/products");
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
-    return data;
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.log(err.message);
+
+      return [];
+    }
   }
 }
 
@@ -65,6 +72,15 @@ class UI {
     });
 
     productsDom.innerHTML = result;
+  }
+
+  dispalyLoading(isLoading) {
+    if (isLoading) {
+      productsDom.innerHTML =
+        "<h2 class='loading-text'>Loading products...</h2>";
+    } else {
+      productsDom.innerHTML = "";
+    }
   }
 
   getAddToCartId() {
@@ -248,20 +264,29 @@ class Storage {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const products = new Products();
+  const ui = new UI();
+
+  ui.dispalyLoading(true);
+
   const productsData = await products.getProducts();
 
-  const ui = new UI();
+  ui.dispalyLoading(false);
+
+  //display products
+  if (productsData.length > 0) {
+    ui.displayProducts(productsData);
+    ui.getAddToCartId();
+    Storage.saveData(productsData);
+  } else {
+    productsDom.innerHTML =
+      "<h2>Failed to load products. Please try again later.</h2>";
+  }
 
   //setUpApp function for reloading and keep modal closed
   ui.setUpApp();
 
   //cart logic
   ui.cartLogic();
-
-  //display products
-  ui.displayProducts(productsData);
-  ui.getAddToCartId();
-  Storage.saveData(productsData);
 });
 
 // toggle sidebar on mobile

@@ -20,6 +20,8 @@ const sizeOptions = document.querySelector(".size-options");
 const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
 const sidebar = document.querySelector(".sidebar");
 const toggleGroups = document.querySelectorAll(".toggle-group");
+// loading toast
+const toast = document.querySelector('.toast')
 
 let carts = [];
 let buttonsDOM = [];
@@ -74,12 +76,11 @@ class UI {
     productsDom.innerHTML = result;
   }
 
-  dispalyLoading(isLoading) {
-    if (isLoading) {
-      productsDom.innerHTML =
-        "<h2 class='loading-text'>Loading products...</h2>";
-    } else {
-      productsDom.innerHTML = "";
+  displayLoading(isLoading) {
+    if(isLoading){
+      toast.classList.add('show')
+    }else {
+      toast.classList.remove('show')
     }
   }
 
@@ -266,11 +267,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const products = new Products();
   const ui = new UI();
 
-  ui.dispalyLoading(true);
+  ui.displayLoading(true);
 
   const productsData = await products.getProducts();
 
-  ui.dispalyLoading(false);
+  ui.displayLoading(false);
 
   //display products
   if (productsData.length > 0) {

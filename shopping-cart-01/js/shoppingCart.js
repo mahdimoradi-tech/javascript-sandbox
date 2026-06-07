@@ -1,7 +1,7 @@
 // cart
 const cartBtn = document.querySelector(".cart-btns");
 const cartTotal = document.querySelector(".cart-badge"); // => badge for counting add carts
-const cartContent = document.querySelector(".cart-modal");
+const cartContent = document.querySelector(".cart-products");
 const clearCart = document.querySelector(".clear-cart-btn");
 const totalPrice = document.querySelector(".total-price");
 // modal
@@ -21,7 +21,7 @@ const mobileFilterToggle = document.querySelector(".mobile-filter-toggle");
 const sidebar = document.querySelector(".sidebar");
 const toggleGroups = document.querySelectorAll(".toggle-group");
 // loading toast
-const toast = document.querySelector('.toast')
+const toast = document.querySelector(".toast");
 
 let carts = [];
 let buttonsDOM = [];
@@ -77,15 +77,15 @@ class UI {
   }
 
   displayLoading(isLoading) {
-    if(isLoading){
-      toast.classList.add('show')
-    }else {
-      toast.classList.remove('show')
+    if (isLoading) {
+      toast.classList.add("show");
+    } else {
+      toast.classList.remove("show");
     }
   }
 
   getAddToCartId() {
-    const addToCartbtns = [...document.querySelectorAll(".add-to-cart")];
+    const addToCartbtns = [...document.querySelectorAll(".add-to-cart-btn")];
     buttonsDOM = addToCartbtns;
 
     addToCartbtns.forEach((btn) => {
@@ -94,7 +94,7 @@ class UI {
       //check if this product id is in cart or not
       const isInCarts = carts.find((p) => p.id === parseInt(id));
       if (isInCarts) {
-        btn.innerText = "This cart added!";
+        btn.innerText = "This card added!";
         btn.disabled = true;
       }
 
@@ -130,24 +130,28 @@ class UI {
   }
 
   displayCartItem(product) {
-    cartContent.innerHTML += `<div class="cart__item">
-          <div class="cart__item-image">
-            <img src=${product.imageUrl} alt="" />
-          </div>
-          <div class="product__text">
-            <div class="price">
-              <span class="price__amount">${product.price}</span>
-              <span class="price__unit">$</span>
+    cartContent.innerHTML += `<article class="cart-product">
+            <div class="cart-product__image">
+              <img
+                src=${product.image}
+                alt="Basic Slim Fit T-Shirt"
+              />
             </div>
-            <p>${product.title}</p>
-          </div>
-          <div class="amount-item" data-id=${product.id}>
-            <i class="fa-solid fa-chevron-up increment" data-id=${product.id}></i>
-            <span>${product.quantity}</span>
-            <i class="fa-solid fa-chevron-down decrement" data-id=${product.id}></i>
-          </div>
-              <i class="fa-solid fa-trash-can delete" data-id=${product.id}></i>  
-        </div> `;
+
+            <div class="cart-product__info">
+              <div class="info-top">
+                <span class="brand">${product.title}</span>
+              </div>
+              <div class="info-bottom">
+                <h3 class="product-name">${product.description}</h3>
+                <span class="product-price">$ ${product.price}</span>
+              </div>
+            </div>
+
+            <button class="cart-product__remove" aria-label="Remove from cart" data-id=${product.id}>
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </article>`;
   }
 
   setUpApp() {

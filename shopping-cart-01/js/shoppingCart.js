@@ -149,7 +149,7 @@ class UI {
             </div>
 
             <button class="cart-product__remove" aria-label="Remove from cart" data-id=${product.id}>
-              <i class="fa-regular fa-trash-can"></i>
+              <i class="fa-regular fa-trash-can" data-id=${product.id}></i>
             </button>
           </article>`;
   }
@@ -185,8 +185,11 @@ class UI {
         Storage.saveCarts(carts);
 
         addQuantity.nextElementSibling.innerText = addedItem.quantity;
-      } else if (event.target.classList.contains("delete")) {
-        const removeQuantity = event.target;
+      } else if (
+        event.target.classList.contains("fa-trash-can") ||
+        event.target.classList.contains("cart-product__remove")
+      ) {
+        const removeQuantity = event.target.closest('.cart-product__remove');
         const id = removeQuantity.dataset.id;
 
         this.removeItem(parseInt(id));
@@ -238,12 +241,14 @@ class UI {
 
     // enable the "add to cart" button again
     const button = this.getSingleButton(id);
+    console.log(button);
+
     button.innerText = "add cart";
     button.disabled = false;
   }
 
   getSingleButton(id) {
-    return buttonsDOM.find((btn) => parseInt(btn.dataset.id) === id);
+    return buttonsDOM.find((btn) => parseInt(btn.dataset.id) === parseInt(id));
   }
 }
 

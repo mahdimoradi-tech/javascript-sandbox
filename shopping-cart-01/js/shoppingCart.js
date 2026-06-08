@@ -241,7 +241,6 @@ class UI {
 
     // enable the "add to cart" button again
     const button = this.getSingleButton(id);
-    console.log(button);
 
     button.innerText = "add cart";
     button.disabled = false;
@@ -313,6 +312,14 @@ toggleGroups.forEach((group) => {
 
     if (icon) {
       icon.classList.toggle("rotate-up-90");
+
+      // const dropDown = document.querySelector(".filter-dropdown")
+      // dropDown.classList.toggle('open')
+
+      const dropDown = group.nextElementSibling;
+
+      if(dropDown && dropDown.classList.contains('filter-dropdown'))
+        dropDown.classList.toggle('open')
     }
   });
 });

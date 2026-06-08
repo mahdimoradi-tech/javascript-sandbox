@@ -934,7 +934,7 @@ img {
 
 /* sidebar dropdown filter */
 .filter-dropdown {
-  display: none; 
+  display: none;
   flex-direction: column;
   gap: var(--space-sm);
   padding-left: var(--space-xs);

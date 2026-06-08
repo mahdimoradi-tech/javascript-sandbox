@@ -114,7 +114,7 @@ class UI {
       }
 
       btn.addEventListener("click", (event) => {
-        event.target.innerText = "This cart added!";
+        event.target.innerText = "This card added!";
         event.target.disabled = true;
         // get product from products
         const addedProduct = { ...Storage.getProduct(id), quantity: 1 };
@@ -264,6 +264,36 @@ class UI {
   getSingleButton(id) {
     return buttonsDOM.find((btn) => parseInt(btn.dataset.id) === parseInt(id));
   }
+
+  filterCategory() {
+    const checkboxItems = document.querySelectorAll(".dropdown-item input[type='checkbox']");
+
+    let categories = [];
+
+    checkboxItems.forEach((checkbox) => {
+      checkbox.addEventListener("change", (e) => {
+        const selectedCategory = e.target.value;
+
+        if (categories.includes(selectedCategory)) {
+          categories = categories.filter((c) => c !== selectedCategory);
+        } else {
+          categories.push(selectedCategory);
+        }
+
+        const productsFilteredByCategory = Storage.getProduct().filter((p) =>
+          categories.includes(p.category),
+        );
+
+        if (productsFilteredByCategory.length > 0) {
+          this.displayProducts(productsFilteredByCategory);
+          this.getAddToCartId();
+        } else {
+          this.displayProducts(Storage.getProduct());
+          this.getAddToCartId();
+        }
+      });
+    });
+  }
 }
 
 //3. storage => local
@@ -273,8 +303,12 @@ class Storage {
   }
 
   static getProduct(id) {
-    const _products = JSON.parse(localStorage.getItem("products"));
-    return _products.find((p) => p.id === parseInt(id));
+    if (id) {
+      const _products = JSON.parse(localStorage.getItem("products"));
+      return _products.find((p) => p.id === parseInt(id));
+    } else {
+      return JSON.parse(localStorage.getItem("products"));
+    }
   }
 
   static saveCarts(carts) {
@@ -301,6 +335,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ui.displayProducts(productsData);
     ui.displaySidebarCategory(productsData);
     ui.getAddToCartId();
+    ui.filterCategory();
     Storage.saveData(productsData);
   } else {
     productsDom.innerHTML =

@@ -84,6 +84,21 @@ class UI {
     }
   }
 
+  displaySidebarCategory(products) {
+    const categoryDropdown = document.querySelector(".category-dropdown");
+    const makeSetProducts = new Set(products.map((p) => p.category));
+    let result = "";
+
+    makeSetProducts.forEach((category) => {
+      result += `<label class="dropdown-item">
+                  <input type="checkbox" value="${category}" />
+                  <span>${category}</span>
+                </label>`;
+    });
+
+    categoryDropdown.innerHTML = result;
+  }
+
   getAddToCartId() {
     const addToCartbtns = [...document.querySelectorAll(".add-to-cart-btn")];
     buttonsDOM = addToCartbtns;
@@ -189,7 +204,7 @@ class UI {
         event.target.classList.contains("fa-trash-can") ||
         event.target.classList.contains("cart-product__remove")
       ) {
-        const removeQuantity = event.target.closest('.cart-product__remove');
+        const removeQuantity = event.target.closest(".cart-product__remove");
         const id = removeQuantity.dataset.id;
 
         this.removeItem(parseInt(id));
@@ -284,6 +299,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   //display products
   if (productsData.length > 0) {
     ui.displayProducts(productsData);
+    ui.displaySidebarCategory(productsData);
     ui.getAddToCartId();
     Storage.saveData(productsData);
   } else {
@@ -318,8 +334,8 @@ toggleGroups.forEach((group) => {
 
       const dropDown = group.nextElementSibling;
 
-      if(dropDown && dropDown.classList.contains('filter-dropdown'))
-        dropDown.classList.toggle('open')
+      if (dropDown && dropDown.classList.contains("filter-dropdown"))
+        dropDown.classList.toggle("open");
     }
   });
 });

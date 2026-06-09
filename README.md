@@ -7,6 +7,7 @@ A curated collection of front-end mini-projects and components built with HTML, 
 | Project Name | Concept / Tech Stack | Source Code | Live Demo |
 | :--- | :--- | :---: | :---: |
 | **Dynamic Shopping Cart** | FakeStore API, async/await, DOM Rendering, Multi-select Filtering | [Code](./shopping-cart-01) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/shopping-cart-01/) |
+| **ToDoList App** | DOM Manipulation, Local Storage, CRUD | [Code](./todo-app-01) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/todo-app-02/) |
 | *Upcoming Project* | *...* | *-* | *-* |
 
 ## 🛠️ Global Setup

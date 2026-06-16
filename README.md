@@ -6,9 +6,9 @@ A curated collection of front-end mini-projects and components built with HTML, 
 
 | Project Name | Concept / Tech Stack | Source Code | Live Demo |
 | :--- | :--- | :---: | :---: |
-| **Dynamic Shopping Cart** | FakeStore API, async/await, DOM Rendering, Multi-select Filtering | [Code](./shopping-cart-01) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/shopping-cart-01/) |
-| **ToDoList App** | DOM Manipulation, Local Storage, CRUD | [Code](./todo-app-02) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/todo-app-02/) |
-| **Inventory App** | Tailwind CSS, DOM Manipulation, Modules | [Code](./inventory-app-03) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/inventory-app-03/) |
+| **Dynamic Shopping Cart** | FakeStore API, async/await, DOM Rendering, Multi-select Filtering | [Code](./01-shopping-cart) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/01-shopping-cart/) |
+| **ToDoList App** | DOM Manipulation, Local Storage, CRUD | [Code](./02-todo-app) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/02-todo-app/) |
+| **Inventory App** | Tailwind CSS, DOM Manipulation, Modules | [Code](./03-inventory-app) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/03-inventory-app/public/) |
 | *Upcoming Project* | *...* | *-* | *-* |
 
 ## 🛠️ Global Setup

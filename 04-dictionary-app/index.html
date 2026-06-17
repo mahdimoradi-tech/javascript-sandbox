@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Dictionary & Flashcards</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🧠 Smart Dictionary</h1>
+        <p>Search, Learn, and Retain.</p>
+      </header>
+
+      <main>
+        <section class="search-section">
+          <input
+            type="text"
+            id="word-input"
+            placeholder="Enter an English word..."
+          />
+          <button id="search-btn">Search</button>
+        </section>
+
+        <section class="result-section" id="result-container">
+          <!-- <div class="word-card">
+            <div class="word-header">
+              <h2 id="word-title">Hello</h2>
+              <button id="play-audio-btn">🔊</button>
+            </div>
+            <span class="phonetic">/həˈloʊ/</span>
+            <p class="definition">A greeting or expression of goodwill.</p>
+            <button id="add-to-deck-btn">➕ Add to Flashcards</button>
+          </div> -->
+        </section>
+
+        <section class="deck-section">
+          <h2>
+            <span>📚 My Flashcards</span>
+            <span id="deck-count"></span>
+          </h2>
+
+          <ul id="flashcard-list" class="flashcard-list">
+            <!-- <li>
+              <span
+                ><strong>Hello</strong>: A greeting or expression of
+                goodwill.</span
+              >
+
+              <button class="remove-btn" data-word="Hello">❌</button>
+            </li> -->
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

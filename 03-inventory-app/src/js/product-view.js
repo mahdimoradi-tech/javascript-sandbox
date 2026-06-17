@@ -23,17 +23,17 @@ const sortByCategory = document.getElementById("sort-products-by-category");
 
 class ProductView {
   constructor() {
-    (addNewProductBtn.addEventListener("click", (e) => this.addNewProduct(e)),
-      searchInput.addEventListener("input", (e) => this.searchProducts(e)),
-      sortProducts.addEventListener("change", (e) => this.sortProducts(e)),
-      modalBackDrop.addEventListener("click", () => this.closeModal()),
-      closeModalBtn.addEventListener("click", () => this.closeModal()),
-      editSelectedProduct.addEventListener("click", (e) =>
-        this.updateEditedProduct(e),
-      ),
-      sortByCategory.addEventListener("change", (e) =>
-        this.sortProductsByCategory(e),
-      ));
+    addNewProductBtn.addEventListener("click", (e) => this.addNewProduct(e));
+    searchInput.addEventListener("input", (e) => this.searchProducts(e));
+    sortProducts.addEventListener("change", (e) => this.sortProducts(e));
+    modalBackDrop.addEventListener("click", () => this.closeModal());
+    closeModalBtn.addEventListener("click", () => this.closeModal());
+    editSelectedProduct.addEventListener("click", (e) =>
+      this.updateEditedProduct(e),
+    );
+    sortByCategory.addEventListener("change", (e) =>
+      this.sortProductsByCategory(e),
+    );
     this.products = [];
   }
 
@@ -50,7 +50,7 @@ class ProductView {
     Storage.saveProducts({ title, quantity, category });
 
     this.setApp();
-    
+
     productTitle.value = "";
     productQuantity.value = "";
 
@@ -131,10 +131,10 @@ class ProductView {
 
   sortProducts(e) {
     selectedSortValue = e.target.value;
-    this.sortProductsLogic(selectedSortValue)
+    this.sortProductsLogic(selectedSortValue);
   }
 
-  sortProductsLogic(selectedSortValue){
+  sortProductsLogic(selectedSortValue) {
     this.products = Storage.getProducts(selectedSortValue);
     this.sortProductsByCategoryLogic(selectedSectionInSortCategory);
   }

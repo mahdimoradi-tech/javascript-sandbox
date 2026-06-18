@@ -186,8 +186,7 @@ class ProductView {
 
     editproductTitle.value = selectedProduct.title;
     editQuantity.value = selectedProduct.quantity;
-    //! we must find a way to choose selected product category title in select list as defult when you click on product's edit btn
-    // editProductCategory.input = selectedProductCategoryObj.id
+    editProductCategory.value = selectedProduct.category
   }
 
   updateEditedProduct(e) {

@@ -75,7 +75,7 @@ class ProductView {
       result += `<div class="flex items-center justify-between mb-2">
           <span class="text-slate-400">${product.title}</span>
           <div class="flex items-center gap-x-3">
-            <span class="text-slate-400">${new Date().toLocaleDateString("fa-IR")}</span>
+            <span class="text-slate-400">${new Date(product.createdAt).toLocaleDateString("fa-IR")}</span>
             <span
               class="block px-3 text-slate-400 border-slate-400 text-sm rounded-2xl"
               >${selectedCategory.title}</span

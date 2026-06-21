@@ -72,8 +72,8 @@ class ProductView {
         (category) => parseInt(category.id) === parseInt(product.category),
       );
 
-      result += `<div class="flex items-center justify-between mb-2">
-          <span class="text-slate-400">${product.title}</span>
+      result += `<div class="flex items-center justify-between mb-2 gap-x-1">
+          <span class="text-slate-400 truncate flex-1 cursor-pointer" title="${product.title}">${product.title}</span>
           <div class="flex items-center gap-x-3">
             <span class="text-slate-400">${new Date(product.createdAt).toLocaleDateString("fa-IR")}</span>
             <span

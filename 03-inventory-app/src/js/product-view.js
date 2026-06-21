@@ -11,7 +11,7 @@ const addNewProductBtn = document.getElementById("add-new-product");
 const productsList = document.getElementById("products-list");
 const searchInput = document.getElementById("search-input");
 const sortProducts = document.getElementById("sort-products");
-const warehouseCounter = document.getElementById("warehouse-counter");
+const inventoryCounter = document.getElementById("inventory-counter");
 const modalBackDrop = document.getElementById("modal-back-drop");
 const modalEditForm = document.getElementById("modal-edit-form");
 const closeModalBtn = document.getElementById("close-modal-btn");
@@ -214,7 +214,7 @@ class ProductView {
 
   updateNumberOfProducts() {
     const nubmerOfProducts = this.products.length;
-    warehouseCounter.innerHTML = nubmerOfProducts;
+    inventoryCounter.innerHTML = nubmerOfProducts;
   }
 }
 

@@ -1,11 +1,9 @@
-import Storage from "./Storage.js";
+import Storage from "./storage.js";
 
 const categoryTitle = document.getElementById("category-title");
 const categoryDescription = document.getElementById("category-description");
 const addNewCategoryBtn = document.getElementById("add-new-category");
-const toggleCategoryFormBtn = document.getElementById(
-  "toggle-add-category-form",
-);
+const toggleCategoryFormBtn = document.getElementById("toggle-add-category-form");
 const categoryForm = document.getElementById("category-wrapper");
 const cancelAddCategoryBtn = document.getElementById("cancel-add-category");
 const editProductCategory = document.getElementById("edit-product-category");

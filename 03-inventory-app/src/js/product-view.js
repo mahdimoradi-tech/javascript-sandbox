@@ -1,4 +1,4 @@
-import Storage from "./Storage.js";
+import Storage from "./storage.js";
 
 let editProductId = null;
 let selectedSectionInSortCategory = "all";

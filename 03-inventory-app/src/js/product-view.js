@@ -11,7 +11,7 @@ const addNewProductBtn = document.getElementById("add-new-product");
 const productsList = document.getElementById("products-list");
 const searchInput = document.getElementById("search-input");
 const sortProducts = document.getElementById("sort-products");
-const warehouseCounter = document.getElementById("warehouse-counter");
+const inventoryCounter = document.getElementById("inventory-counter");
 const modalBackDrop = document.getElementById("modal-back-drop");
 const modalEditForm = document.getElementById("modal-edit-form");
 const closeModalBtn = document.getElementById("close-modal-btn");
@@ -72,8 +72,8 @@ class ProductView {
         (category) => parseInt(category.id) === parseInt(product.category),
       );
 
-      result += `<div class="flex items-center justify-between mb-2">
-          <span class="text-slate-400">${product.title}</span>
+      result += `<div class="flex items-center justify-between mb-2 gap-x-1">
+          <span class="text-slate-400 truncate flex-1 cursor-pointer" title="${product.title}">${product.title}</span>
           <div class="flex items-center gap-x-3">
             <span class="text-slate-400">${new Date(product.createdAt).toLocaleDateString("fa-IR")}</span>
             <span
@@ -214,7 +214,7 @@ class ProductView {
 
   updateNumberOfProducts() {
     const nubmerOfProducts = this.products.length;
-    warehouseCounter.innerHTML = nubmerOfProducts;
+    inventoryCounter.innerHTML = nubmerOfProducts;
   }
 }
 

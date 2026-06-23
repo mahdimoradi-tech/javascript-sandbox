@@ -10,7 +10,7 @@ A curated collection of front-end mini-projects and components built with HTML, 
 | **ToDoList App** | DOM Manipulation, Local Storage, CRUD | [Code](./02-todo-app) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/02-todo-app/) |
 | **Inventory App** | Tailwind CSS, DOM Manipulation, Modules | [Code](./03-inventory-app) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/03-inventory-app/) |
 | **Smart Dictionary** | Dictionary API, OOP, Local Storage, Axios | [Code](./04-dictionary-app) | [Live 🔗](https://mahdimoradi-tech.github.io/javascript-sandbox/04-dictionary-app/) |
-| *Upcoming Project* | *...* | *-* | *-* |
+| *Upcoming Project* | *...* | *-* | *-* | *-* |
 
 ## 🛠️ Global Setup
 To run any of these projects locally:

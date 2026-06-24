@@ -20,6 +20,7 @@ const editQuantity = document.getElementById("edit-quantity");
 const editProductCategory = document.getElementById("edit-product-category");
 const editSelectedProduct = document.getElementById("edit-selected-product");
 const sortByCategory = document.getElementById("sort-products-by-category");
+const emptyFieldToast = document.getElementById("empty-field-toast")
 
 class ProductView {
   constructor() {
@@ -44,8 +45,9 @@ class ProductView {
     const quantity = productQuantity.value;
     const category = productCategory.value;
 
-    if (!title || !quantity || !category)
-      return alert("make sure none of product field are empty...");
+    // if (!title || !quantity || !category)
+    //   return alert("make sure none of product field are empty...");
+    this.showToast(title, quantity, category)
 
     Storage.saveProducts({ title, quantity, category });
 
@@ -215,6 +217,17 @@ class ProductView {
   updateNumberOfProducts() {
     const nubmerOfProducts = this.products.length;
     inventoryCounter.innerHTML = nubmerOfProducts;
+  }
+
+   showToast(title, quantity, category){
+    if (!title || !quantity || !category){
+      emptyFieldToast.classList.remove("hidden")
+      emptyFieldToast.classList.add("animate-slildeDownToast")
+    }
+    setTimeout(() => {
+      emptyFieldToast.classList.remove("animate-slildeDownToast")
+      emptyFieldToast.classList.add("hidden")
+    }, 2700);
   }
 }
 

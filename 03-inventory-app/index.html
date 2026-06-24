@@ -8,10 +8,39 @@
     <script src="./src/js/app.js" type="module" defer></script>
   </head>
   <body>
+
+    <!-- toast -->
+    <div
+      id="empty-field-toast"
+      class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 gap-x-3 bg-slate-800 border-l-4 border-red-500 rounded-r-xl shadow-[0_8px_30px_rgb(0,0,0,0.2)] transform transition-all hidden"
+    >
+      <svg
+        class="w-6 h-6 text-red-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+
+      <div class="flex flex-col">
+        <span class="text-sm font-bold text-red-500">Validation Error</span>
+        <span class="text-sm text-slate-300"
+          >Please fill in all required fields.</span
+        >
+      </div>
+    </div>
+
     <div class="bg-slate-800 min-h-screen">
       <!-- app bar -->
       <div
-        class="h-12 flex items-center justify-center gap-x-2 sm:gap-x-4 bg-slate-700 mb-6 "
+        class="h-12 flex items-center justify-center gap-x-2 sm:gap-x-4 bg-slate-700 mb-6"
       >
         <h1 class="text-xl font-bold text-slate-300 truncate">
           Inventory App using tailwind & JS
@@ -147,36 +176,45 @@
 
         <!-- sort -->
         <h2 class="text-xl text-slate-300 font-bold mb-2">sort</h2>
-        <div class="flex gap-y-4 flex-col items-start sm:flex-row sm:justify-between  mb-6">
-
+        <div
+          class="flex gap-y-4 flex-col items-start sm:flex-row sm:justify-between mb-6"
+        >
           <!-- sort by add time -->
           <div class="flex items-center gap-3">
-            <label for="sort-products" class="text-slate-400 text-lg">add time</label>
-          <select
-            name="sort-products"
-            id="sort-products"
-            class="bg-transparent text-slate-400 rounded-xl"
-          >
-            <option class="bg-slate-500 text-slate-300" value="">
-              select a category
-            </option>
-            <option class="bg-slate-500 text-slate-300" selected value="newest">
-              newest
-            </option>
-            <option class="bg-slate-500 text-slate-300" value="oldest">
-              oldest
-            </option>
-          </select>
+            <label for="sort-products" class="text-slate-400 text-lg"
+              >add time</label
+            >
+            <select
+              name="sort-products"
+              id="sort-products"
+              class="bg-transparent text-slate-400 rounded-xl"
+            >
+              <option class="bg-slate-500 text-slate-300" value="">
+                select a category
+              </option>
+              <option
+                class="bg-slate-500 text-slate-300"
+                selected
+                value="newest"
+              >
+                newest
+              </option>
+              <option class="bg-slate-500 text-slate-300" value="oldest">
+                oldest
+              </option>
+            </select>
           </div>
 
           <!-- sort by category -->
           <div class="flex items-center gap-3">
-              <label for="sort-products" class="text-slate-400 text-lg">category</label>
-          <select
-            name="sort-products"
-            id="sort-products-by-category"
-            class="bg-transparent text-slate-400 rounded-xl"
-          ></select>
+            <label for="sort-products" class="text-slate-400 text-lg"
+              >category</label
+            >
+            <select
+              name="sort-products"
+              id="sort-products-by-category"
+              class="bg-transparent text-slate-400 rounded-xl"
+            ></select>
           </div>
         </div>
 

@@ -32,9 +32,8 @@ class ProductView {
     editSelectedProduct.addEventListener("click", (e) =>
       this.updateEditedProduct(e),
     );
-    sortByCategory.addEventListener("change", (e) =>
-      this.sortProductsByCategory(e),
-    );
+    sortByCategory.addEventListener("change", (e) => this.sortProductsByCategory(e));
+    document.addEventListener('categoryUpdated', () => this.checkIfCategoryAvailable())
     this.products = [];
   }
 
@@ -45,8 +44,6 @@ class ProductView {
     const quantity = productQuantity.value;
     const category = productCategory.value;
 
-    // if (!title || !quantity || !category)
-    //   return alert("make sure none of product field are empty...");
     if (this.showToast(title, quantity, category)) return;
 
     Storage.saveProducts({ title, quantity, category });
@@ -67,6 +64,8 @@ class ProductView {
   }
 
   createProductsList() {
+     this.checkIfCategoryAvailable()
+
     if (this.products.length === 0) {
       productsList.innerHTML = `<div class="flex flex-col items-center justify-center py-10 px-4 text-center">
       <svg class="w-16 h-16 text-slate-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -245,6 +244,16 @@ class ProductView {
       return true;
     }
     return false;
+  }
+
+  checkIfCategoryAvailable(){
+    if(Storage.getCategories().length === 0) {
+      addNewProductBtn.textContent = "Please create a category first"
+      addNewProductBtn.setAttribute('disabled', true)
+     }else {
+      addNewProductBtn.textContent = "Add New Product";
+      addNewProductBtn.removeAttribute("disabled");
+    }
   }
 }
 

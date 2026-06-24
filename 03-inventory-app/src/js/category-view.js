@@ -38,6 +38,9 @@ class CategoryView {
 
     categoryForm.classList.add("hidden");
     toggleCategoryFormBtn.classList.remove("hidden");
+
+    const event = new CustomEvent('categoryUpdated')
+    document.dispatchEvent(event)
   }
 
   // refresh categories in localstorage

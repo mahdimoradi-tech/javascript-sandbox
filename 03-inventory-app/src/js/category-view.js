@@ -8,16 +8,13 @@ const categoryForm = document.getElementById("category-wrapper");
 const cancelAddCategoryBtn = document.getElementById("cancel-add-category");
 const editProductCategory = document.getElementById("edit-product-category");
 const sortByCategory = document.getElementById("sort-products-by-category");
+const emptyFieldToast = document.getElementById("empty-field-toast")
 
 class CategoryView {
   constructor() {
     addNewCategoryBtn.addEventListener("click", (e) => this.addNewCategory(e));
-    toggleCategoryFormBtn.addEventListener("click", (e) =>
-      this.toggleCategoryForm(e),
-    );
-    cancelAddCategoryBtn.addEventListener("click", (e) =>
-      this.cancelAddCategory(e),
-    );
+    toggleCategoryFormBtn.addEventListener("click", (e) => this.toggleCategoryForm(e));
+    cancelAddCategoryBtn.addEventListener("click", (e) => this.cancelAddCategory(e));
     this.categories = [];
   }
 
@@ -26,8 +23,8 @@ class CategoryView {
 
     const title = categoryTitle.value.trim().toLowerCase();
     const description = categoryDescription.value.trim().toLowerCase();
-    if (!title || !description)
-      return alert("make sure that none category fields are empty...");
+    
+    if(this.showToast(title, description)) return
 
     Storage.saveCategory({ title, description });
 
@@ -41,6 +38,9 @@ class CategoryView {
 
     categoryForm.classList.add("hidden");
     toggleCategoryFormBtn.classList.remove("hidden");
+
+    const event = new CustomEvent('categoryUpdated')
+    document.dispatchEvent(event)
   }
 
   // refresh categories in localstorage
@@ -83,6 +83,21 @@ class CategoryView {
 
     categoryDescription.value = "";
     categoryTitle.value = "";
+  }
+
+  showToast(title, description){
+    if (!title || !description){
+      emptyFieldToast.classList.remove("hidden")
+      emptyFieldToast.classList.add("animate-slildeDownToast")
+      
+      setTimeout(() => {
+        emptyFieldToast.classList.remove("animate-slildeDownToast")
+        emptyFieldToast.classList.add("hidden")
+      }, 2700);
+
+      return true;
+    }
+    return false;
   }
 }
 

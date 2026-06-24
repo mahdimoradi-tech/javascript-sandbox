@@ -24,7 +24,7 @@ class CategoryView {
     const title = categoryTitle.value.trim().toLowerCase();
     const description = categoryDescription.value.trim().toLowerCase();
     
-    this.showToast(title, description)
+    if(this.showToast(title, description)) return
 
     Storage.saveCategory({ title, description });
 
@@ -86,11 +86,15 @@ class CategoryView {
     if (!title || !description){
       emptyFieldToast.classList.remove("hidden")
       emptyFieldToast.classList.add("animate-slildeDownToast")
+      
+      setTimeout(() => {
+        emptyFieldToast.classList.remove("animate-slildeDownToast")
+        emptyFieldToast.classList.add("hidden")
+      }, 2700);
+
+      return true;
     }
-    setTimeout(() => {
-      emptyFieldToast.classList.remove("animate-slildeDownToast")
-      emptyFieldToast.classList.add("hidden")
-    }, 2700);
+    return false;
   }
 }
 

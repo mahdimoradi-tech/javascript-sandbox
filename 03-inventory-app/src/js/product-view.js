@@ -47,7 +47,7 @@ class ProductView {
 
     // if (!title || !quantity || !category)
     //   return alert("make sure none of product field are empty...");
-    this.showToast(title, quantity, category)
+    if(this.showToast(title, quantity, category)) return
 
     Storage.saveProducts({ title, quantity, category });
 
@@ -223,11 +223,15 @@ class ProductView {
     if (!title || !quantity || !category){
       emptyFieldToast.classList.remove("hidden")
       emptyFieldToast.classList.add("animate-slildeDownToast")
+      
+      setTimeout(() => {
+        emptyFieldToast.classList.remove("animate-slildeDownToast")
+        emptyFieldToast.classList.add("hidden")
+      }, 2700);
+
+      return true;
     }
-    setTimeout(() => {
-      emptyFieldToast.classList.remove("animate-slildeDownToast")
-      emptyFieldToast.classList.add("hidden")
-    }, 2700);
+    return false
   }
 }
 

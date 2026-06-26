@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="./app.js" defer></script>
+    <script src="https://kit.fontawesome.com/45acf4f9f1.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <nav class="nav">
+        <h2 class="nav__title">SPA</h2>
+        <ul class="nav__items">
+          <li class="nav__item">
+            <a href="/" class="nav__link" data-link>
+              <span class="icon-container">
+                <i class="fa-regular fa-user"></i>
+              </span>
+              <span class="nav__item-label"> داشبورد </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="/products" class="nav__link" data-link>
+              <span class="icon-container">
+                <i class="fa-regular fa-shop"></i>
+              </span>
+              <span class="nav__item-label"> محصولات </span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="/posts" class="nav__link" data-link>
+              <span class="icon-container">
+                <i class="fa-regular fa-blog"></i>
+              </span>
+              <span class="nav__item-label"> پست ها </span>
+            </a>
+          </li>
+        </ul>
+        <div class="nav__version">
+          <span class="nav__version-label">SPA v1</span>
+          <span class="icon-container sidebar-toggler">
+            <i class="fa-regular fa-chevron-right"></i>
+          </span>
+        </div>
+      </nav>
+      <main id="app"></main>
+    </div>
+  </body>
+</html>

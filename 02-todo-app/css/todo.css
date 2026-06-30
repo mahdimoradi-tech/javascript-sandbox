@@ -59,7 +59,6 @@ body {
 
 .form-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
   gap: 1rem;
 }
@@ -89,7 +88,6 @@ body {
 .todo-form button {
   border: none;
   outline: none;
-  background-color: none;
   font-size: 1.6rem;
   padding: 0.8rem;
 }
@@ -172,6 +170,7 @@ select {
   border-radius: 0.5rem;
   overflow: hidden;
   align-self: flex-end;
+  flex-basis: auto;
 }
 
 .select::after {
@@ -202,12 +201,10 @@ button > i {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
   max-width: 34rem;
   width: 100%;
   background: white;
   border-radius: 8px;
-  display: flex;
   z-index: 20;
 }
 
@@ -225,8 +222,6 @@ button > i {
 }
 
 .modal__content {
-  border: none;
-  border-radius: 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 1rem;
@@ -253,7 +248,6 @@ button > i {
   border-radius: 8px;
   grid-column: 1/-1;
   outline: none;
-  background-color: none;
   font-size: 1.6rem;
   padding: 0.8rem;
   font-family: "Vazir";
@@ -263,7 +257,6 @@ button > i {
 .modal__close {
   border: none;
   outline: none;
-  background-color: none;
   font-size: 1.6rem;
   padding: 1rem;
   border-radius: 0.8rem;
@@ -287,4 +280,23 @@ button > i {
 .modal__save:hover {
   background-color: var(--primaryColor);
   color: var(--mainWhite);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 48rem;
+  }
+
+  .form-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .todo-form {
+    max-width: 34rem;
+  }
+
+  .modal {
+    max-width: 40rem;
+  }
 }

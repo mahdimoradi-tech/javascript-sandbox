@@ -23,7 +23,7 @@
   --mainGrey: #7c7c7c;
   --secondayGrey: #ccc;
   --mainSpacing: 0.1rem;
-  --mainTransition: all 0.3s linear;
+  --mainTransition: all 0.16s linear;
   --mainRed: #db2777;
   --bodyColor: #f6f6f6;
 }
@@ -206,6 +206,7 @@ button > i {
   background: white;
   border-radius: 8px;
   z-index: 20;
+  transition: var(--mainTransition);
 }
 
 .modal__header {
@@ -229,7 +230,12 @@ button > i {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.hidden {
+  transform: translate(-50%, -20rem);
 }
 
 .backdrop {
@@ -241,6 +247,7 @@ button > i {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 10;
   backdrop-filter: blur(3px);
+  transition: var(--mainTransition);
 }
 
 .edit-input {
